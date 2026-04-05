@@ -1,8 +1,13 @@
 :root {
-  --paper: #ebe2cf;
-  --grid: #d4c7ad;
-  --ink: #1d1a14;
-  --accent: #8b2f20;
+  --bg: #f3ece3;
+  --paper: #fffaf0;
+  --ink: #1f1a16;
+  --border: #bca98a;
+  --accent: #8f2d22;
+  --accent-2: #1a5d8f;
+  --card: #fff4d9;
+  --card-2: #e8f4ff;
+  --card-3: #fce8ef;
 }
 
 * {
@@ -11,121 +16,166 @@
 
 body {
   margin: 0;
-  font-family: "Times New Roman", Georgia, serif;
+  font-family: "Georgia", "Times New Roman", serif;
   color: var(--ink);
-  background: #d9cfba;
+  background: radial-gradient(circle at top, #fff8ea, #eadccc 65%);
 }
 
 .paper {
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 24px 30px 28px;
-  background-color: var(--paper);
-  background-image:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 40px 40px;
-  border: 1px solid #b6a98f;
+  max-width: 1200px;
+  margin: 18px auto;
+  padding: 22px;
+  background: var(--paper);
+  border: 3px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 14px 45px rgba(45, 30, 9, 0.16);
 }
 
 .meta-row,
 .slogan-row {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
-  font-size: 18px;
-  border-bottom: 2px solid #786a52;
-  padding: 8px 0;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 16px;
+  padding: 10px 0;
+  border-bottom: 2px dashed var(--border);
+}
+
+.title-wrap {
+  text-align: center;
+  padding: 14px 0 8px;
+}
+
+.badge {
+  display: inline-block;
+  margin: 0;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ffeaa5, #ffd1b5);
+  font-size: 15px;
+  font-weight: 700;
 }
 
 h1 {
-  margin: 18px 0 12px;
-  text-align: center;
-  letter-spacing: 2px;
-  font-size: 86px;
-  color: #233123;
-  line-height: 1;
+  margin: 8px 0 6px;
+  font-size: clamp(44px, 7vw, 78px);
+  letter-spacing: 1px;
+  color: #143d5e;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 19px;
+  color: #643f2e;
 }
 
 .columns {
   display: grid;
-  grid-template-columns: 1fr 1fr 0.95fr;
-  gap: 24px;
-  margin-top: 24px;
+  gap: 16px;
+  margin-top: 18px;
 }
 
-.second {
-  grid-template-columns: 1fr 1fr 1fr;
+.top {
+  grid-template-columns: 1fr 1fr 0.85fr;
 }
 
-article,
-aside {
-  border-top: 2px solid #8f7f65;
-  padding-top: 10px;
+.middle {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.card.field {
+  background: var(--card-2);
+}
+
+.card.culture,
+.card.letters {
+  background: var(--card-3);
+}
+
+.card.hot {
+  box-shadow: inset 0 0 0 2px #f5c1b7;
 }
 
 h2,
 h3 {
-  margin: 4px 0 8px;
-  font-weight: 700;
+  margin: 0 0 8px;
+  line-height: 1.2;
 }
 
 h2 {
-  font-size: 47px;
-  line-height: 1.02;
+  font-size: clamp(23px, 3.2vw, 33px);
 }
 
 h3 {
-  font-size: 38px;
-  line-height: 1.05;
+  font-size: clamp(21px, 2.8vw, 28px);
+}
+
+p,
+li {
+  font-size: clamp(16px, 1.8vw, 20px);
+  line-height: 1.45;
 }
 
 .lead {
   font-weight: 700;
 }
 
-p,
-li {
-  font-size: 35px;
-  line-height: 1.34;
-  margin: 8px 0;
-}
-
-aside ul {
+ul,
+ol {
+  margin: 8px 0 0;
   padding-left: 22px;
 }
 
+.quote {
+  padding: 8px 10px;
+  margin-top: 10px;
+  border-left: 4px solid var(--accent);
+  background: #fff;
+  border-radius: 8px;
+  font-style: italic;
+}
+
+.mini-label {
+  margin-top: 10px;
+  font-weight: 700;
+  color: var(--accent-2);
+}
+
 .bottom-grid {
-  margin-top: 28px;
-  border-top: 2px solid #8f7f65;
+  margin-top: 16px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: 16px;
 }
 
 footer {
-  margin-top: 24px;
-  padding-top: 10px;
-  border-top: 2px solid #8f7f65;
-  font-size: 24px;
-}
-
-.tiny {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 2px dashed var(--border);
   font-size: 18px;
 }
 
-@media (max-width: 1200px) {
-  h1 { font-size: 64px; }
-  h2 { font-size: 34px; }
-  h3 { font-size: 28px; }
-  p, li { font-size: 25px; }
-  .meta-row, .slogan-row { font-size: 15px; }
+.tiny {
+  font-size: 16px;
 }
 
-@media (max-width: 900px) {
-  .columns,
-  .second,
+@media (max-width: 980px) {
+  .top,
+  .middle,
   .bottom-grid {
     grid-template-columns: 1fr;
+  }
+
+  .paper {
+    margin: 10px;
+    padding: 14px;
   }
 }
